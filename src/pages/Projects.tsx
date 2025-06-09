@@ -198,6 +198,13 @@ const Projects = () => {
     }
   }, [searchParams]);
 
+  // Add useEffect to scroll to top when a project is selected
+  useEffect(() => {
+    if (selectedProject) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProject]);
+
   // If a project is selected, show detailed view
   if (selectedProject) {
     return (

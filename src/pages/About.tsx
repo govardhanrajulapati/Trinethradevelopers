@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import LeadCaptureForm from '@/components/LeadCaptureForm';
@@ -143,7 +142,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="relative">
+          {/* Desktop Timeline (hidden on mobile) */}
+          <div className="hidden md:block relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gold-400"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -158,6 +158,32 @@ const About = () => {
                     </Card>
                   </div>
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold-500 rounded-full border-4 border-white shadow-lg"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Mobile Timeline (shown only on mobile) */}
+          <div className="md:hidden">
+            <div className="relative border-l-2 border-gold-400 ml-4 pl-8 space-y-8">
+              {milestones.map((milestone, index) => (
+                <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="absolute -left-[2.5rem] w-6 h-6 bg-gold-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xs">{index + 1}</span>
+                  </div>
+                  <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <CardContent className="p-5">
+                      <div className="flex items-center mb-2">
+                        <div className="text-xl font-bold text-gold-600">{milestone.year}</div>
+                        <div className="w-2 h-2 bg-gold-400 rounded-full mx-3"></div>
+                        <h3 className="font-semibold text-navy-900">{milestone.event}</h3>
+                      </div>
+                      <p className="text-charcoal-600 text-sm">{milestone.description}</p>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Decorative connection line */}
+                  <div className="absolute -left-[0.85rem] top-5 w-4 h-0.5 bg-gold-400"></div>
                 </div>
               ))}
             </div>

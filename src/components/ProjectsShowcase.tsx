@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -104,6 +103,8 @@ const ProjectsShowcase = () => {
   };
 
   const handleViewDetails = (projectId: number) => {
+    // Scroll to top of page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     // Navigate to projects page with specific project ID
     navigate(`/projects?id=${projectId}`);
   };
@@ -214,7 +215,7 @@ const ProjectsShowcase = () => {
 
                   <div className="flex gap-2 pt-4">
                     <Button 
-                      className="flex-1 premium-button text-sm"
+                      className="flex-1 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-medium hover:from-gold-400 hover:to-gold-500 hover:shadow-lg shadow-gold-500/25 text-sm"
                       onClick={() => handleViewDetails(project.id)}
                     >
                       View Details

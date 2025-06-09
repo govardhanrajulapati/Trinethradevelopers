@@ -1,4 +1,3 @@
-
 import HeroSection from '@/components/HeroSection';
 import ProjectsShowcase from '@/components/ProjectsShowcase';
 import { Button } from '@/components/ui/button';
@@ -176,7 +175,7 @@ const Index = () => {
                 <CardContent className="p-8">
                   <div className="flex items-center mb-6">
                     <service.icon className="w-8 h-8 text-gold-400 mr-3" />
-                    <h3 className="font-playfair text-2xl font-bold">
+                    <h3 className="font-playfair text-2xl font-bold text-white">
                       {service.title}
                     </h3>
                   </div>
